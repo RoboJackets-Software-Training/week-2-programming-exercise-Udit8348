@@ -1,5 +1,4 @@
-#include <vector>
-#include <iostream>
+#include "convolution.h"
 
 std::vector<double> readInVector(std::string s) {
   int prev_location = 0;
@@ -39,6 +38,5 @@ int main() {
     // method call
     applyConvolution(x, w, pack_with_zeros);
     applyConvolution(x, w, false);
-
 }
 
