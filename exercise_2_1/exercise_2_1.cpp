@@ -36,7 +36,10 @@ int main() {
     w = readInVector(s);
 
     // method call
+    std::cout << "x: ";
+    printVector(x);
+    std::cout << "w: ";
+    printVector(w);
     applyConvolution(x, w, pack_with_zeros);
-    applyConvolution(x, w, false);
 }
 
