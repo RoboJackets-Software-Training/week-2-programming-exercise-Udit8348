@@ -1,5 +1,14 @@
 #include "convolution.h"
 
+void printVector(std::vector<double> vec){
+    std::cout << "{";
+    for (int i = 0; i < vec.size(); i++) {
+        std::cout << vec[i] << (i != (vec.size()-1) ? ", " : "");
+    }
+    std::cout << "}" << std::endl;
+}
+
+
 std::vector<double> applyConvolution(std::vector<double> x, std::vector<double> w, bool pack_with_zeros) {
     std::vector<double> y;
     int buf = (w.size()-1)/2;
@@ -26,11 +35,7 @@ std::vector<double> applyConvolution(std::vector<double> x, std::vector<double> 
     }
 
     // Print output vector
-    std::cout << "{";
-    for (int i = 0; i < y.size(); i++) {
-        std::cout << y[i] << (i != (y.size()-1) ? ", " : "");
-    }
-    std::cout << "}" << std::endl;
+    printVector(y);
 
     return y;
   
