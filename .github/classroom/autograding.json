@@ -1,0 +1,64 @@
+{
+  "tests": [
+    {
+      "name": "Exercise 2.1: Test Case 1",
+      "setup": "cd exercise_2_1 && mkdir -p build && cd build && cmake .. && make",
+      "run": "cd exercise_2_1/build && ./exercise_2_1",
+      "input": "true\r\n1,2,3,4,5,6,7\r\n2,5,6",
+      "output": "x: {1, 2, 3, 4, 5, 6, 7}\r\nw: {2, 5, 6}\r\n{17, 30, 43, 56, 69, 82, 47}",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    },
+    {
+      "name": "Exercise 2.1: Test Case 2",
+      "setup": "cd exercise_2_1 && mkdir -p build && cd build && cmake .. && make",
+      "run": "./exercise_2_1/build/exercise_2_1",
+      "input": "true\r\n1,2,3,4,5,6,7,8,9\r\n2,5,6,-1,-2",
+      "output": "x: {1, 2, 3, 4, 5, 6, 7, 8, 9}\r\nw: {2, 5, 6, -1, -2}\r\n{-2, 6, 16, 26, 36, 46, 56, 86, 108}",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    },
+    {
+      "name": "Exercise 2.1: Test Case 3",
+      "setup": "cd exercise_2_1 && mkdir -p build && cd build && cmake .. && make",
+      "run": "./exercise_2_1/build/exercise_2_1",
+      "input": "true\r\n1,2,3,4,5,6,7,8,9\r\n2,5,6,-1,-2",
+      "output": "x: {1, 2, 3, 4, 5, 6, 7, 8, 9}\r\nw: {2, 5, 6, -1, -2}\r\n{-2, 6, 16, 26, 36, 46, 56, 86, 108}",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    },
+    {
+      "name": "Project 2.3: Test Case 1",
+      "setup": "cd project_2_3 && mkdir -p build && cd build && cmake .. && make",
+      "run": "./project_2_3/build/exercise_2_3",
+      "input": "1,2,3,4,5,6\r\nd\r\n0x2A7",
+      "output": "input: 2A7\r\noutput type: d\r\nresult: 679\r\ndecimal_inputs: 1\r\nbinary_inputs: 2\r\nhex_inputs: 4\r\ndecimal_outputs: 5\r\nbinary_outputs: 5\r\nhex_outputs: 6",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    },
+    {
+      "name": "Project 2.3; Test Case 2",
+      "setup": "cd project_2_3 && mkdir -p build && cd build && cmake .. && make",
+      "run": "./project_2_3/build/exercise_2_3",
+      "input": "1,3,3,77,53,12\r\nb\r\n0x2A7",
+      "output": "input: 2A7\r\noutput type: b\r\nresult: 001010100111\r\ndecimal_inputs: 1\r\nbinary_inputs: 3\r\nhex_inputs: 4\r\ndecimal_outputs: 77\r\nbinary_outputs: 54\r\nhex_outputs: 12",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    },
+    {
+      "name": "Project 2.3: Test Case 3",
+      "setup": "cd project_2_3 && mkdir -p build && cd build && cmake .. && make",
+      "run": "./project_2_3/build/exercise_2_3",
+      "input": "86,75,3,49,5,6\r\nh\r\n42152",
+      "output": "input: 42152\r\noutput type: h\r\nresult: A4A8\r\ndecimal_inputs: 87\r\nbinary_inputs: 75\r\nhex_inputs: 3\r\ndecimal_outputs: 49\r\nbinary_outputs: 5\r\nhex_outputs: 7",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 5
+    }
+  ]
+}
