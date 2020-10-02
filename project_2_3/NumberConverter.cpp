@@ -39,9 +39,9 @@ std::vector<int> NumberConverter::buildPlaceVector(std::string raw) {
 	return output;
 }
 
-void NumberConverter::decideOutput(std::string input, std::string output) {
-  std::cout << "output type: " << output << std::endl;
-  switch (output.at(0)) {
+void NumberConverter::outputFromHex(std::string input, std::string outputType) {
+  std::cout << "output type: " << outputType << std::endl;
+  switch (outputType.at(0)) {
     case 'd':
       std::cout << "result: " 
                 << hexToDecimal(buildPlaceVector(input))
@@ -49,7 +49,9 @@ void NumberConverter::decideOutput(std::string input, std::string output) {
       break;
 
     case 'h':
-      std::cout << "result: some hex" << std::endl;
+      std::cout << "result: "
+                << input
+                << std::endl;
       break;
 
     case 'b':
@@ -57,9 +59,34 @@ void NumberConverter::decideOutput(std::string input, std::string output) {
       break;
 
     default:
-      std::cout << "unknown" << std::endl;
+      std::cout << "unknown output" << std::endl;
       break;
   }   
+}
+
+void NumberConverter::outputFromDecimal(int input, std::string outputType) {
+  std::cout << "output type: " << outputType << std::endl;
+  switch (outputType.at(0)) {
+    case 'd':
+      std::cout << "result: " 
+                << input
+                << std::endl;
+      break;
+
+    case 'h':
+      std::cout << "result: "
+                << decimalToHex(input)
+                << std::endl;
+      break;
+
+    case 'b':
+      std::cout << "result: some binary" << std::endl;
+      break;
+
+    default:
+      std::cout << "unknown output" << std::endl;
+      break;
+  }
 }
 
 int NumberConverter::binaryToDecimal(std::vector<int> places) {
@@ -84,4 +111,18 @@ int NumberConverter::hexToDecimal(std::vector<int> places){
     sum += places[i] * std::pow(16, i);
   }
   return sum;
+}
+
+
+std::string NumberConverter::decimalToHex(int input) {
+  std::string out = "";
+  while (input > 16) {
+    out += numberToHexChar(input % 16); 
+    input /= 16;
+  }
+  // final conversion
+  out += numberToHexChar(input % 16);
+
+  std::reverse(out.begin(), out.end());
+  return out;
 }

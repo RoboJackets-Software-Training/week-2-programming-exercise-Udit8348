@@ -28,21 +28,21 @@ int main() {
     std::cin >> input;
 
     if(input.at(0) == '0' && input.at(1) == 'x'){
+      // HEX inputs
       input = input.substr(2, input.size()-1);
       std::cout << "input: " << input << std::endl;
-    } else if(input.at(0) == 'b') {
-      std::cout << "binary input\n";
+      conv.outputFromHex(input, output);
+    } 
+    else if(input.at(0) == 'b') {
+      // BINARY inputs
       input = input.substr(1, input.size()-1);
       std::cout << "input: " << input << std::endl;   
-    }else {
-      std::cout << "input: " << input << std::endl;
     }
-
-    conv.decideOutput(input, output); 
-    
-
-
-    
-
+    else {
+      // DECIMAL inputs
+      std::cout << "input: " << input << std::endl;
+      int in = std::stoi(input);
+      conv.outputFromDecimal(in, output);
+    }
     return 0;
 }
