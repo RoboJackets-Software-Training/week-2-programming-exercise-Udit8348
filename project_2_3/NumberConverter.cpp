@@ -39,7 +39,30 @@ std::vector<int> NumberConverter::buildPlaceVector(std::string raw) {
 	return output;
 }
 
-int NumberConverter::binaryToNumber(std::vector<int> places) {
+void NumberConverter::decideOutput(std::string input, std::string output) {
+  std::cout << "output type: " << output << std::endl;
+  switch (output.at(0)) {
+    case 'd':
+      std::cout << "result: " 
+                << hexToDecimal(buildPlaceVector(input))
+                << std::endl;
+      break;
+
+    case 'h':
+      std::cout << "result: some hex" << std::endl;
+      break;
+
+    case 'b':
+      std::cout << "result: some binary" << std::endl;
+      break;
+
+    default:
+      std::cout << "unknown" << std::endl;
+      break;
+  }   
+}
+
+int NumberConverter::binaryToDecimal(std::vector<int> places) {
   int sum = 0;
   
   // need to reverse the vector for the correct place values
@@ -51,7 +74,7 @@ int NumberConverter::binaryToNumber(std::vector<int> places) {
 	return sum;
 }
 
-int NumberConverter::hexToNumber(std::vector<int> places){
+int NumberConverter::hexToDecimal(std::vector<int> places){
 	int sum = 0;
   
   // need to reverse the vector for the correct place values

@@ -22,21 +22,27 @@ std::vector<double> readInVector(std::string s) {
 int main() {
 
     NumberConverter conv;
+    std::string output, input;
 
-    // Example 1 binary -> decimal test cases
-    std::string binary1 = "1";          // 1
-    std::string binary2 = "01101";      // 13
-    std::string binary3 = "1101010101"; // 853
-    // Example 2 hex -> decimal test cases
-    std::string hex1 = "1";             // 1
-    std::string hex2 = "D";             // 13
+    std::cin >> output;
+    std::cin >> input;
 
-    std::cout << conv.binaryToNumber(conv.buildPlaceVector(binary1)) << std::endl;
-    std::cout << conv.binaryToNumber(conv.buildPlaceVector(binary2)) << std::endl;
-    std::cout << conv.binaryToNumber(conv.buildPlaceVector(binary3)) << std::endl;
+    if(input.at(0) == '0' && input.at(1) == 'x'){
+      input = input.substr(2, input.size()-1);
+      std::cout << "input: " << input << std::endl;
+    } else if(input.at(0) == 'b') {
+      std::cout << "binary input\n";
+      input = input.substr(1, input.size()-1);
+      std::cout << "input: " << input << std::endl;   
+    }else {
+      std::cout << "input: " << input << std::endl;
+    }
 
-    std::cout << conv.hexToNumber(conv.buildPlaceVector("78BD")) << std::endl;
-    std::cout << "finished" << std::endl;
+    conv.decideOutput(input, output); 
+    
+
+
+    
 
     return 0;
 }

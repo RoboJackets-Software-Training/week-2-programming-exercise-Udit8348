@@ -16,9 +16,11 @@ class NumberConverter {
 
 	std::vector<int> buildPlaceVector(std::string raw);
 
-	// Conversion Methods
-	int binaryToNumber(std::vector<int> places);
+	void decideOutput(std::string input, std::string output);
 
-	int hexToNumber(std::vector<int> places);
+	// Conversion Methods
+	int binaryToDecimal(std::vector<int> places);
+
+	int hexToDecimal(std::vector<int> places);
 
 };
