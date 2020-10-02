@@ -8,7 +8,8 @@
  *  - Set winner to Empty
  */
 Board::Board() {
-  // TODO
+  std::fill(data.begin(), data.end(), Marker::Empty);
+  winner = Marker::Empty;
 }
 
 /**
@@ -44,6 +45,7 @@ bool Board::placeMarker(int r, int c, Marker marker) {
 Marker Board::getMarker(int r, int c) {
   // TODO using the helper return the marker at that location data[index]
   // TODO use helper method locationToIndex
+  return data[locationToIndex(r,c)];
 }
 
 /**
@@ -52,7 +54,13 @@ Marker Board::getMarker(int r, int c) {
  * @note The game is over if no more moves can be made or if one player has won the game
  */
 bool Board::isOver() {
-  // TODO
+    if(std::count(data.begin(), data.end(), Marker::Empty) == 0) {
+        return true;
+    } else if(getWinner() != Marker::Empty) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /**
@@ -77,7 +85,7 @@ size_t Board::locationToIndex(int r, int c) {
   // data[0], data[1], data[2]
   // data[3], data[4], data[5]
   // data[6], data[7], data[8]
-  return 0;
+  return (r * 3) + c;
 }
 
 /**
